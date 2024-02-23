@@ -1,0 +1,37 @@
+plugins {
+    id("com.android.library")
+}
+
+android {
+    namespace = "com.nevrozq.pansionproject.android"
+    compileSdk = 34
+
+    defaultConfig {
+        targetSdk = 34
+        minSdk = 21
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compiler
+    }
+
+    sourceSets {
+        named("main") {
+            dependencies {
+                implementation(libs.androidx.compose.runtime)
+            }
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+        }
+    }
+
+
+}
